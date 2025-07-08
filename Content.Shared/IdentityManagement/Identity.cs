@@ -1,5 +1,6 @@
 ﻿using Content.Shared.Ghost;
 using Content.Shared.IdentityManagement.Components;
+using Robust.Shared.Player;
 
 namespace Content.Shared.IdentityManagement;
 
@@ -21,6 +22,15 @@ public static class Identity
         //var meta = ent.GetComponent<MetaDataComponent>(uid); // Frontier: exception safety
         if (meta.EntityLifeStage <= EntityLifeStage.Initializing)
             return meta.EntityName; // Identity component and such will not yet have initialized and may throw NREs
+
+        // Mono: Ghosts can now see usernames of players
+        if (viewer != null && ent.HasComponent<GhostComponent>(viewer.Value) &&
+            ent.TryGetComponent<ActorComponent>(uid, out var actorComponent))
+        {
+            var entityName = meta.EntityName;
+            var username = actorComponent.PlayerSession.Name;
+            return $"{entityName} ({username})";
+        }
 
         var uidName = meta.EntityName;
 

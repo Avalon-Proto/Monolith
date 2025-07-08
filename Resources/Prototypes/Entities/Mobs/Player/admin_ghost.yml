@@ -74,8 +74,6 @@
   - type: ComplexInteraction
   - type: Puller
   - type: CombatMode
-  - type: Stealth
-    maxVisibility: -1.5
   - type: Physics
     ignorePaused: true
     bodyType: Kinematic
