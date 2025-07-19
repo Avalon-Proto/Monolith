@@ -23,6 +23,10 @@
         Piercing: 0.95
         Heat: 0.95
   - type: FlashImmunity
+  - type: NightVision
+    flashDurationMultiplier: 2
+    color: "#bd4139"
+    isEquipment: true
   - type: RadarConsole
     maxRange: 350
     followEntity: true
