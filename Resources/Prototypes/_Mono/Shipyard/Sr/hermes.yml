@@ -1,30 +1,30 @@
 - type: vessel
-  id: Letterbox
+  id: Hermes
   parent: BaseVessel
-  name: Letterbox
-  description: The mailing segment of the combined service ship.
+  name: Hermes
+  description: The mailing segment of the combined service ship, designed for speed above all.
   price: 12500
-  category: Micro
+  category: Small
   group: Sr
   access: Mail
-  shuttlePath: /Maps/_Mono/Shuttles/letterbox.yml
+  shuttlePath: /Maps/_Mono/Shuttles/hermes.yml
   guidebookPage: Null
   class:
   - Cargo
   engine:
-  - Plasma
+  - Uranium
 
 - type: gameMap
-  id: Letterbox
-  mapName: 'Letterbox'
-  mapPath: /Maps/_Mono/Shuttles/letterbox.yml
+  id: Hermes
+  mapName: 'Hermes'
+  mapPath: /Maps/_Mono/Shuttles/hermes.yml
   minPlayers: 0
   stations:
-    Letterbox:
+    Hermes:
       stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Letterbox SRV{1}'
+          mapNameTemplate: 'Hermes SRV{1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'

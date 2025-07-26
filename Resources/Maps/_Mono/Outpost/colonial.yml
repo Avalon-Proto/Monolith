@@ -26309,13 +26309,6 @@ entities:
     - type: Transform
       pos: 22.430908,16.071648
       parent: 2
-- proto: MailTeleporter
-  entities:
-  - uid: 3456
-    components:
-    - type: Transform
-      pos: -14.5,25.5
-      parent: 2
 - proto: MaterialCloth
   entities:
   - uid: 299

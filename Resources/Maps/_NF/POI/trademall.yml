@@ -31682,13 +31682,6 @@ entities:
     - type: Transform
       pos: 8.5,29.5
       parent: 1
-- proto: MailTeleporter
-  entities:
-  - uid: 4336
-    components:
-    - type: Transform
-      pos: -3.5,-3.5
-      parent: 1
 - proto: Mannequin
   entities:
   - uid: 2559
