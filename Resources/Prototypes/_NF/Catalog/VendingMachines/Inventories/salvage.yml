@@ -12,6 +12,7 @@
     WeaponProtoKineticAccelerator: 4
     WeaponCrusher: 6
     WeaponCrusherDagger: 8
+    ClothingHandsConcussiveGauntlets: 2
     WeaponGrapplingGun: 10
     Pickaxe: 10
     OreBag: 6
@@ -28,6 +29,7 @@
     WeaponCrusher: 4294967295 # Infinite
     WeaponCrusherDagger: 4294967295 # Infinite
     WeaponGrapplingGun: 4294967295 # Infinite
+    ClothingHandsConcussiveGauntlets: 4294967295 # Infinite
     Pickaxe: 4294967295 # Infinite
     OreBag: 4294967295 # Infinite
     Floodlight: 4294967295 # Infinite

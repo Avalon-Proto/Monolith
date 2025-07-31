@@ -286,6 +286,7 @@
       children:
       - id: JetpackBlueFilled
       - id: JetpackBlackFilled
+    - id: ClothingHandsConcussiveGauntlets # Mono - Drills for hands
 
 - type: entityTable
   id: RandomGeneratorTable
