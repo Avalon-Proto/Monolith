@@ -1,0 +1,104 @@
+- type: reaction
+  id: HyperzineBruizine
+  reactants:
+    Stimulants:
+      amount: 1
+    Bruizine:
+      amount: 1
+  effects:
+  - !type:ExplosionReactionEffect
+    explosionType: Default # 15 damage per intensity.
+    maxIntensity: 200
+    intensityPerUnit: 5
+    intensitySlope: 5
+    maxTotalIntensity: 200
+
+- type: reaction
+  id: HyperzinePunct
+  reactants:
+    Stimulants:
+      amount: 1
+    Puncturase:
+      amount: 1
+  effects:
+  - !type:ExplosionReactionEffect
+    explosionType: Default # 15 damage per intensity.
+    maxIntensity: 200
+    intensityPerUnit: 5
+    intensitySlope: 5
+    maxTotalIntensity: 200
+
+- type: reaction
+  id: HyperzineLacer
+  reactants:
+    Stimulants:
+      amount: 1
+    Lacerinol:
+      amount: 1
+  effects:
+  - !type:ExplosionReactionEffect
+    explosionType: Default # 15 damage per intensity.
+    maxIntensity: 200
+    intensityPerUnit: 5
+    intensitySlope: 5
+    maxTotalIntensity: 200
+
+- type: reaction
+  id: HyperzineDermaline
+  reactants:
+    Stimulants:
+      amount: 1
+    Dermaline:
+      amount: 1
+  effects:
+  - !type:ExplosionReactionEffect
+    explosionType: Default # 15 damage per intensity.
+    maxIntensity: 200
+    intensityPerUnit: 5
+    intensitySlope: 5
+    maxTotalIntensity: 200
+
+- type: reaction
+  id: HyperzinePyra
+  reactants:
+    Stimulants:
+      amount: 1
+    Pyrazine:
+      amount: 1
+  effects:
+  - !type:ExplosionReactionEffect
+    explosionType: Default # 15 damage per intensity.
+    maxIntensity: 200
+    intensityPerUnit: 5
+    intensitySlope: 5
+    maxTotalIntensity: 200
+
+- type: reaction
+  id: HyperzineLepo
+  reactants:
+    Stimulants:
+      amount: 1
+    Leporazine:
+      amount: 1
+  effects:
+  - !type:ExplosionReactionEffect
+    explosionType: Default # 15 damage per intensity.
+    maxIntensity: 200
+    intensityPerUnit: 5
+    intensitySlope: 5
+    maxTotalIntensity: 200
+
+- type: reaction
+  id: HyperzineBic
+  reactants:
+    Stimulants:
+      amount: 1
+    Bicaridine:
+      amount: 1
+  effects:
+  - !type:ExplosionReactionEffect
+    explosionType: Default # 15 damage per intensity.
+    maxIntensity: 200
+    intensityPerUnit: 5
+    intensitySlope: 5
+    maxTotalIntensity: 200
