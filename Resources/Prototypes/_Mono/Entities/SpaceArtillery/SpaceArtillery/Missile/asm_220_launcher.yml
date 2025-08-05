@@ -56,19 +56,21 @@
   - type: ShipGunClass
     shipClass: Medium
 
+# Rechargining Version, for use on Stations/Special shuttles
+
 - type: entity
   id: WeaponTurretASM220Battery
-  suffix: [Station, Recharging Ammo]
   name: ASM-220 torpedo VLS
   parent: BallisticArtilleryUnanchorable
   description: A heavy torpedo VLS relying on manual loading to work, usually done at harbor. However, it has high-yield missiles for its size. This one replenishes its own ammo.
+  suffix: Station, Recharging Ammo
   components:
   - type: StaticPrice
     price: 10000
   - type: Sprite
     sprite: _Mono/Objects/ShuttleWeapons/asm220.rsi
     layers:
-     - state: space_artillery
+    - state: space_artillery
   - type: Appearance
   - type: AmmoCounter
   - type: WirelessNetworkConnection
@@ -83,15 +85,15 @@
     powerChargeRate: 500  
     powerUsePassive: 2500
     powerUseActive: 0
-  - type: ProjectileBatteryAmmoProvider
-    proto: ShipMissileASM220HE
-    fireCost: 8000
   - type: Battery
     maxCharge: 40000
     startingCharge: 40000
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 12000
+    autoRechargeRate: 350
+  - type: ProjectileBatteryAmmoProvider
+    proto: ShipMissileASM220HE
+    fireCost: 1500
   - type: Destructible
     thresholds:
     - trigger:
