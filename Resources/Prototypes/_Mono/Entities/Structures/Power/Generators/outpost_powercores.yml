@@ -79,11 +79,13 @@
 - type: entity
   id: SuperOutpostCore
   parent: MachineOutpostCore
-  name: B.R0-600k Bluespace Reactor
-  description: A Pre-Fracture version of the widely known Bluespace reactor, this one has 3 times the power output of modern recreations.
+  name: B.R0-400k Bluespace Reactor
+  description: A Pre-Fracture version of the widely known Bluespace reactor, this one has 2 times the power output of modern recreations, but spits out far more radiation
   suffix: 600kw
   components:
   - type: PowerSupplier
-    supplyRate: 600000
-    supplyRampRate: 300000
-    supplyRampTolerance: 600
+    supplyRate: 400000
+    supplyRampRate: 200000
+    supplyRampTolerance: 300
+  - type: RadiationSource
+    intensity: 15
