@@ -73,3 +73,15 @@
             False: { visible: false }
 # visuals are broken but this thing is going to be unanchorable anyway so who cares
 ## this probably is a problem with my implementation of the enum anchored visual system
+
+- type: entity
+  id: SuperOutpostCore
+  parent: MachineOutpostCore
+  name: B.R0-600k Bluespace Reactor
+  description: A Pre-Fracture version of the widely known Bluespace reactor, this one has 3 times th epwoer output.
+  suffix: 600kw
+  components:
+  - type: PowerSupplier
+    supplyRate: 600000
+    supplyRampRate: 300000
+    supplyRampTolerance: 600

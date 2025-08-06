@@ -605,6 +605,11 @@
     moduleId: Artifact # Frontier
     items:
     - NodeScanner
+    - SprayBottle
+    - GasAnalyzer
+    - BorgDropper
+    - BorgVial
+    - GeigerCounter
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: node-scanner-module }
 

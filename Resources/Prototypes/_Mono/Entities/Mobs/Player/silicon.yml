@@ -169,7 +169,8 @@
       - BorgModuleOperative
       - BorgModuleSyndicateWeapon
       - BorgModuleJetpack
-      - BorgModuleTool
+      - BorgModuleMining
+      - BorgModuleAdvancedTool
       - BorgModuleConstruction
       - BorgModuleCable
       - BorgModuleRCD

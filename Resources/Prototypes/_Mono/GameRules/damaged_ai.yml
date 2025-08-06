@@ -49,3 +49,18 @@
     minPlayers: 15
   - type: LoadMapRule
     preloadedGrid: AIRazor
+
+- type: entity
+  parent: BaseRandomShuttleRule
+  id: UnknownShuttleArchangel
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-ai-shuttle-detected
+    startAudio:
+      path: /Audio/Misc/notice1.ogg
+    weight: 1
+    maxOccurrences: 3
+  - type: GameRule
+    minPlayers: 40
+  - type: LoadMapRule
+    preloadedGrid: AIArchangel

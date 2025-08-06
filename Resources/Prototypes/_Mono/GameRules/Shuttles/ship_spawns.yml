@@ -12,3 +12,8 @@
   id: AIRazor
   path: /Maps/_Mono/ShuttleEvent/razor.yml
   copies: 8
+
+- type: preloadedGrid
+  id: AIArchangel
+  path: /Maps/_Mono/ShuttleEvent/archangel.yml
+  copies: 6
