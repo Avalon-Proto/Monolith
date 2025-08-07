@@ -611,7 +611,7 @@
     - BorgDropper
     - GeigerCounter
   - type: DroppableBorgModule # Mono
-    moduleID: Artifact
+    moduleId: Artifact
     items:
     - id: Beaker
       whitelist:
