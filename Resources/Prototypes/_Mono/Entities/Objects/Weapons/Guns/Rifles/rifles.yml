@@ -153,14 +153,15 @@
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
+  - type: GunRequiresWield
   - type: GunWieldBonus
-    minAngle: -20
-    maxAngle: -47
+    minAngle: 0
+    maxAngle: 0
   - type: Gun
-    minAngle: 23
-    maxAngle: 73
-    angleIncrease: 9
-    angleDecay: 20
+    minAngle: 0
+    maxAngle: 20
+    angleIncrease: 1
+    angleDecay: 8
     fireRate: 11 # 660 rpm
     shotsPerBurst: 3
     availableModes:
@@ -207,6 +208,9 @@
     vendPrice: 9000
   - type: PirateBountyItem
     id: ExperimentalFactionWeapon
+  - type: LaserPointer
+    targetedColor: "#00fff7"
+    defaultColor: "#0000ff"
 
 #Mercenary vulcan
 - type: entity
