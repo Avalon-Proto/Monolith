@@ -10,6 +10,7 @@
 # SPDX-FileCopyrightText: 2025 BramvanZijp
 # SPDX-FileCopyrightText: 2025 GreaseMonk
 # SPDX-FileCopyrightText: 2025 LukeZurg22
+# SPDX-FileCopyrightText: 2025 Redrover1760
 # SPDX-FileCopyrightText: 2025 dustylens
 # SPDX-FileCopyrightText: 2025 starch
 #
@@ -200,7 +201,7 @@
 - type: entity
   parent: BaseSecurityPDA
   id: DeputyPDA
-  name: TSF corporal PDA
+  name: TSF marine PDA
   description: A standard TSFMC personal computer.
   components:
   - type: Pda
@@ -250,7 +251,7 @@
 - type: entity
   parent: BaseSecurityPDA
   id: SergeantPDA
-  name: TSF lieutenant PDA
+  name: TSF fireteam leader PDA
   description: A standard TSFMC personal computer.
   components:
   - type: Pda
@@ -433,7 +434,7 @@
 - type: entity
   parent: PassengerPDA
   id: ContractorPDA
-  name: contractor PDA
+  name: spacer PDA
   components:
   - type: Pda
     id: ContractorIDCard
