@@ -140,7 +140,7 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 0.2
     baseSprintSpeed: 1
-    weightlessModifier: 40
+    baseWeightlessModifier: 40
   - type: RadarBlip
     radarColor: "#CF0E0E"
     scale: 3
@@ -244,7 +244,7 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 0.2
     baseSprintSpeed: 1
-    weightlessModifier: 35
+    baseWeightlessModifier: 35
   - type: Damageable
     damageModifierSet: HeavyArmorNT
   - type: RadarBlip
@@ -434,7 +434,7 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 0.1
     baseSprintSpeed: 1
-    weightlessModifier: 25
+    baseWeightlessModifier: 25
   - type: RadarBlip
     radarColor: "#CF0E0E"
     scale: 3
@@ -529,7 +529,7 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 0.25
     baseSprintSpeed: 0.5
-    weightlessModifier: 20
+    baseWeightlessModifier: 20
   - type: RadarBlip
     radarColor: "#CF0E0E"
     scale: 3
@@ -624,7 +624,7 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 0.1
     baseSprintSpeed: 1
-    weightlessModifier: 30
+    baseWeightlessModifier: 30
   - type: RadarBlip
     radarColor: "#CF0E0E"
     scale: 3

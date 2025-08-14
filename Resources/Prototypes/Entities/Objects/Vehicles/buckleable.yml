@@ -83,6 +83,9 @@
             volume: -3
   - type: StaticPrice
     price: 750 # Grand Theft Auto.
+  - type: Tag # Mono
+    tags:
+    - DoorBumpOpener
 
 - type: entity
   id: VehicleJanicart
