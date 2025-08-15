@@ -215,6 +215,7 @@
     baseSprintSpeed: 3.6
   - type: Tag
     tags:
+    - DoorBumpOpener
     - CivilianMechBounty # Mono
 
 - type: entity
@@ -257,6 +258,7 @@
       - HumanoidAppearance
   - type: Tag
     tags:
+    - DoorBumpOpener
     - CivilianMechBounty # Mono
 
 - type: entity
