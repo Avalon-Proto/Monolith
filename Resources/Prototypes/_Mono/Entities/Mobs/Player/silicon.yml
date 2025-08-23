@@ -121,20 +121,21 @@
   - type: SiliconLawProvider
     laws: Redacted
 
+
 - type: entity
   id: BorgChassisRedacted
   parent: BaseBorgChassisRedacted
   name: syndicate automated defense system tender
-  description: A tender to a automated drone ship, to keep internal mechanisms intact. This one is in a great state of disrepair.
+  description: A tender to a automated drone ship, to keep internal mechanisms intact.
   components:
   - type: Sprite
     layers:
-    - state: derelict
-    - state: derelict_e_r
+    - state: synd_engi
+    - state: synd_engi_e
       map: ["enum.BorgVisualLayers.Light"]
       shader: unshaded
       visible: false
-    - state: derelict_l
+    - state: synd_engi_l
       shader: unshaded
       map: ["light"]
       visible: false
@@ -167,9 +168,9 @@
       - PositronicBrain
       borg_module:
       - BorgModuleOperative
-      - BorgModuleSyndicateWeapon
+      - BorgModuleAdvancedWeapon
       - BorgModuleJetpack
-      - BorgModuleTool
+      - BorgModuleAdvancedTool
       - BorgModuleConstruction
       - BorgModuleCable
       - BorgModuleRCD
