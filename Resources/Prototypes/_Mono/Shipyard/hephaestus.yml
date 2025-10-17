@@ -25,7 +25,7 @@
   parent: BaseVessel
   name: Hephaestus
   description: Designed for both shipbreaking and repair, the Hephaestus is a large shuttle with a focus on engineering and salvage, with a luxurious area for both crew and customers to relax.
-  price: 120000
+  price: 175000
   category: Large
   group: Shipyard
   shuttlePath: /Maps/_Mono/Shuttles/hephaestus.yml
