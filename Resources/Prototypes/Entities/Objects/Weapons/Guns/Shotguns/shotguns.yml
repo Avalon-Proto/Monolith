@@ -59,6 +59,7 @@
 # SPDX-FileCopyrightText: 2025 Blu
 # SPDX-FileCopyrightText: 2025 BlueHNT
 # SPDX-FileCopyrightText: 2025 BramvanZijp
+# SPDX-FileCopyrightText: 2025 Daniel Lenrd
 # SPDX-FileCopyrightText: 2025 GoobBot
 # SPDX-FileCopyrightText: 2025 John
 # SPDX-FileCopyrightText: 2025 K-Dynamic
@@ -72,6 +73,7 @@
 # SPDX-FileCopyrightText: 2025 pheenty
 # SPDX-FileCopyrightText: 2025 slarticodefast
 # SPDX-FileCopyrightText: 2025 starch
+# SPDX-FileCopyrightText: 2025 tonotom
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -114,6 +116,10 @@
     proto: ShellShotgun12_gaugeBuckshot
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
+    soundRack: #Mono start
+      path: /Audio/_Mono/Weapons/Guns/Cock/shotgun_cock.ogg
+      params:
+        volume: -3 #Mono end
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
@@ -133,6 +139,21 @@
   - type: ItemTax # Mono
     taxAccounts:
       nfsd: 0.2
+  - type: WieldedCrosshair
+    rsi:
+      sprite: _RMC14/Interface/MousePointer/shotgun_mouse.rsi
+      state: all
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      collection: ShotgunsPickUp
+  - type: EmitSoundOnDrop
+    sound:
+      collection: ShotgunsDrop
+  - type: EmitSoundOnLand
+    sound:
+      collection: ShotgunsDrop
+  # Goobstation edit end
 
 - type: entity
   name: PA M-12 Bulldog (12 gauge)
@@ -209,13 +230,14 @@
   - type: Gun
     fireRate: 3.5 #3->3.5 Mono
   - type: BallisticAmmoProvider
+    soundRack: /Audio/Weapons/Guns/Cock/smg_cock.ogg #Mono
     capacity: 2
   - type: Construction
     graph: ShotgunSawn
     node: start
     deconstructionTarget: null
   - type: StaticPrice
-    price: 350
+    price: 300 # 300 < 350 Mono
 
 - type: entity
   name: double-barreled shotgun (12 gauge)
@@ -276,12 +298,12 @@
     sprite: _NF/Objects/Weapons/Guns/Shotguns/pump.rsi # Frontier: add _NF prefix
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun
-    #fireRate: 1 # Goobstation
+    fireRate: 1.4
   - type: Tag
     tags:
     - WeaponShotgunKammerer
-  - type: BallisticAmmoProvider # Goobstation
-    autoCycle: false
+  - type: BallisticAmmoProvider
+    capacity: 5
   - type: PirateBountyItem # Mono
     id: StandardFactionLongarm
 
@@ -301,11 +323,14 @@
   - type: Gun
     fireRate: 3.5
   - type: BallisticAmmoProvider
+    soundRack: /Audio/Weapons/Guns/Cock/smg_cock.ogg #Mono
     capacity: 2
   - type: Construction
     graph: ShotgunSawn
     node: shotgunsawn
     deconstructionTarget: null
+  - type: StaticPrice # Mono
+    price: 300
 
 - type: entity
   name: sawn-off shotgun (12 gauge)
@@ -337,6 +362,7 @@
   - type: Gun
     fireRate: 4
   - type: BallisticAmmoProvider
+    soundRack: /Audio/Weapons/Guns/Cock/smg_cock.ogg #Mono
     capacity: 1
   - type: Construction
     graph: ShotgunSawn
@@ -362,6 +388,7 @@
   - type: Gun
     fireRate: 2
   - type: BallisticAmmoProvider
+    soundRack: /Audio/Weapons/Guns/Cock/smg_cock.ogg #Mono
     capacity: 1
   - type: StaticPrice
     price: 0
@@ -385,6 +412,7 @@
   - type: Gun
     fireRate: 4 #No reason to stifle the firerate since you have to manually reload every time anyways.
   - type: BallisticAmmoProvider
+    soundRack: /Audio/Weapons/Guns/Cock/smg_cock.ogg #Mono
     capacity: 1
     proto: null
   - type: Construction

@@ -1,7 +1,9 @@
 # SPDX-FileCopyrightText: 2025 Ark
+# SPDX-FileCopyrightText: 2025 Avalon
 # SPDX-FileCopyrightText: 2025 Blu
 # SPDX-FileCopyrightText: 2025 BlueHNT
 # SPDX-FileCopyrightText: 2025 Disguised Bear
+# SPDX-FileCopyrightText: 2025 Ilya246
 # SPDX-FileCopyrightText: 2025 Redrover1760
 # SPDX-FileCopyrightText: 2025 RikuTheKiller
 # SPDX-FileCopyrightText: 2025 core-mene
@@ -40,7 +42,10 @@
     - Toggle
   - type: Gun
     fireRate: 12
-    projectileSpeed: 90
+    projectileSpeed: 160
+    minAngle: 0
+    maxAngle: 5
+    shootThermalSignature: 10000 # relatively low for a shipgun, ~693m signature if firing continuously
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/Gunshots/slammer.ogg
     soundEmpty:
@@ -79,6 +84,77 @@
   - type: ShipGunClass
     shipClass: Light
 
+# RAC-30 Draupnir
+
+- type: entity
+  id: WeaponTurretRAC30
+  name: RAC-30 Draupnir Autocannon
+  parent: BallisticArtillery
+  description: A more heavy duty rapid rife autocannon, firing a hail of rounds much like its namesake became a hail of spears.
+  components:
+  - type: StaticPrice
+    price: 1000
+  - type: Sprite
+    sprite: _Mono/Objects/ShuttleWeapons/rac-30_draupnir.rsi
+    layers:
+    - state: space_artillery
+  - type: Battery
+    maxCharge: 45000
+    startingCharge: 45000
+  - type: ExaminableBattery
+  - type: Appearance
+  - type: FireControlRotate
+  - type: AutoShootGun
+  - type: GunSignalControl
+  - type: WirelessNetworkConnection
+    range: 700
+  - type: DeviceLinkSink
+    ports:
+    - Toggle
+  - type: Gun
+    fireRate: 80
+    projectileSpeed: 180
+    minAngle: 0
+    maxAngle: 8
+    shootThermalSignature: 100000 # ~4.5km if firing continuously
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/Gunshots/slammer.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 600
+  - type: SpaceArtillery
+    powerChargeRate: 100
+    powerUsePassive: 100
+  - type: Actions
+  - type: CombatMode
+    isInCombatMode: true
+  - type: Airtight
+  - type: ProjectileBatteryAmmoProvider
+    proto: 30mmBullet
+    fireCost: 7.5
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 10000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: RadiationBlocker
+    resistance: 8
+  - type: RadarBlip
+    radarColor: "#FF0000"
+    scale: 1.5
+  - type: ShipGunType
+    shipType: Ballistic
+  - type: ShipGunClass
+    shipClass: Medium
+
 # DRAVON 57mm
 
 - type: entity
@@ -104,7 +180,10 @@
     range: 500
   - type: Gun
     fireRate: 1.5
-    projectileSpeed: 161
+    projectileSpeed: 250
+    minAngle: 0
+    maxAngle: 2
+    shootThermalSignature: 2000000 # ~3.5km signature if firing continuously
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/Gunshots/mortar.ogg
     soundEmpty:
@@ -148,7 +227,7 @@
   description: A dual-barrel, heavy 90mm autocannon firing general-purpose APHE rounds, effective for sustained fire against medium targets. Can be remotely activated or linked up to a GCS.
   components:
   - type: StaticPrice
-    price: 1250
+    price: 1000
   - type: Sprite
     sprite: _Mono/Objects/ShuttleWeapons/artillery.rsi
     layers:
@@ -164,12 +243,15 @@
     range: 500
   - type: Gun
     fireRate: 2.5
-    projectileSpeed: 120
+    projectileSpeed: 170
+    minAngle: 0
+    maxAngle: 3
     burstCooldown: 0.5
     burstFireRate: 10
     shotsPerBurst: 2
     selectedMode: Burst
     availableModes: Burst
+    shootThermalSignature: 2000000 # ~4.5km signature if firing continuously
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/Gunshots/120mm_mortar.ogg
     soundEmpty:
@@ -213,7 +295,7 @@
   description: A main battery with dual barrels, delivering rapid, punishing salvos at extreme range. Fires 220mm auto shells with slightly reduced brute strength. Can be remotely activated or linked up to a GCS.
   components:
   - type: StaticPrice
-    price: 20000
+    price: 15000
   - type: Sprite
     sprite: _Mono/Objects/ShuttleWeapons/cyrexa.rsi
     layers:
@@ -240,13 +322,16 @@
         layer:
         - MachineLayer
   - type: Gun
-    projectileSpeed: 155
+    projectileSpeed: 275
+    minAngle: 0
+    maxAngle: 1
     fireRate: 0.2
     burstCooldown: 10
     burstFireRate: 2
     shotsPerBurst: 2
     selectedMode: Burst
     availableModes: Burst
+    shootThermalSignature: 48000000 # ~7km after firing
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/Gunshots/cannon.ogg
     soundEmpty:
@@ -290,7 +375,7 @@
   description: One of the largest chemical-based kinetic weapons in the sector. Its power is only rivaled by mass drivers such as the M381.
   components:
   - type: StaticPrice
-    price: 40000
+    price: 30000
   - type: Sprite
     sprite: _Mono/Objects/ShuttleWeapons/hades.rsi
     layers:
@@ -317,13 +402,16 @@
         layer:
         - MachineLayer
   - type: Gun
-    projectileSpeed: 225
+    projectileSpeed: 350
+    minAngle: 0
+    maxAngle: 0
     fireRate: 0.2
     burstCooldown: 10
     burstFireRate: 2
     shotsPerBurst: 2
     selectedMode: Burst
     availableModes: Burst
+    shootThermalSignature: 160000000 # now all of china knows you're here (12.6km)
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/Gunshots/cannon.ogg
     soundEmpty:
@@ -367,7 +455,7 @@
   description: A smaller, more compact railgun that fires a large slug at rapid velocity, capable of big damage to enemy ships. Medium linear accelerator, can be remotely activated or linked up to a GCS.
   components:
   - type: StaticPrice
-    price: 25000
+    price: 17500
   - type: Sprite
     sprite: _Mono/Objects/ShuttleWeapons/charonette.rsi
     layers:
@@ -383,7 +471,10 @@
     range: 500
   - type: Gun
     fireRate: 0.05
-    projectileSpeed: 400
+    minAngle: 0
+    maxAngle: 0
+    projectileSpeed: 800
+    shootThermalSignature: 20000000 # ~4.5km after firing
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/Gunshots/leviathan_fire.ogg
     soundEmpty:
@@ -438,7 +529,7 @@
   description: A single-barrel, heavy artillery cannon designed for cruisers, delivering massive impact with each long-range shot. Can be remotely activated or linked up to a GCS.
   components:
   - type: StaticPrice
-    price: 20000
+    price: 15000
   - type: Sprite
     sprite: _Mono/Objects/ShuttleWeapons/bofors.rsi
     layers:
@@ -465,8 +556,11 @@
         layer:
         - MachineLayer
   - type: Gun
-    projectileSpeed: 155
+    projectileSpeed: 455
+    minAngle: 0
+    maxAngle: 1
     fireRate: 0.1
+    shootThermalSignature: 80000000 # ~9km after firing
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/Gunshots/cannon.ogg
     soundEmpty:
@@ -511,7 +605,7 @@
   description: A cruiser artillery cannon that launches devastating 203mm shells for long-range ship-to-ship combat. Can be remotely activated or linked up to a GCS.
   components:
   - type: StaticPrice
-    price: 20000
+    price: 12500
   - type: Sprite
     sprite: _Mono/Objects/ShuttleWeapons/kargil.rsi
     layers:
@@ -538,8 +632,11 @@
         layer:
         - MachineLayer
   - type: Gun
-    projectileSpeed: 155
+    projectileSpeed: 255
+    minAngle: 0
+    maxAngle: 3
     fireRate: 0.2
+    shootThermalSignature: 40000000 # ~6.3km after firing
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/Gunshots/cannon.ogg
     soundEmpty:

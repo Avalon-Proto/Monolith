@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2025 Ark
+# SPDX-FileCopyrightText: 2025 Ilya246
 # SPDX-FileCopyrightText: 2025 starch
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -67,12 +68,16 @@
       ballistic-ammo: !type:Container
   - type: FireControllable
   - type: RadarBlip
+    visibleFromOtherGrids: false
     radarColor: "#9999FF"
     scale: 1
   - type: ShipGunType
     shipType: Kinetic
   - type: ShipGunClass
     shipClass: Medium
+  - type: LightningTarget
+    priority: 1
+  - type: ThermalSignature # at least most have a thermal signature when firing
 
 - type: entity
   id: BallisticArtilleryUnanchorable
@@ -147,6 +152,7 @@
       ballistic-ammo: !type:Container
   - type: FireControllable
   - type: RadarBlip
+    visibleFromOtherGrids: false
     radarColor: "#9999FF"
     scale: 1
   - type: Gun
@@ -240,6 +246,7 @@
       gun_magazine: !type:ContainerSlot
   - type: FireControllable
   - type: RadarBlip
+    visibleFromOtherGrids: false
     radarColor: "#9999FF"
     scale: 1
   - type: Gun

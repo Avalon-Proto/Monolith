@@ -62,11 +62,15 @@
 # SPDX-FileCopyrightText: 2025 Blu
 # SPDX-FileCopyrightText: 2025 BlueHNT
 # SPDX-FileCopyrightText: 2025 BramvanZijp
+# SPDX-FileCopyrightText: 2025 Daniel Lenrd
 # SPDX-FileCopyrightText: 2025 Eden077
 # SPDX-FileCopyrightText: 2025 GaussiArson
+# SPDX-FileCopyrightText: 2025 Ghagliiarghii
 # SPDX-FileCopyrightText: 2025 Ignaz "Ian" Kraft
 # SPDX-FileCopyrightText: 2025 Redrover1760
 # SPDX-FileCopyrightText: 2025 UltimateJester
+# SPDX-FileCopyrightText: 2025 beck-thompson
+# SPDX-FileCopyrightText: 2025 bitcrushing
 # SPDX-FileCopyrightText: 2025 keronshb
 # SPDX-FileCopyrightText: 2025 starch
 #
@@ -79,7 +83,7 @@
   components:
   - type: Sprite
   - type: Item
-    size: Huge
+    size: Large # Mono - Was Huge
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/laser_retro.rsi
     quickEquip: false
@@ -108,6 +112,21 @@
   - type: ItemTax # Mono
     taxAccounts:
       nfsd: 0.3
+  - type: WieldedCrosshair
+    rsi:
+      sprite: _RMC14/Interface/MousePointer/rifle_mouse.rsi
+      state: all
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      collection: LasersPickUp
+  - type: EmitSoundOnDrop
+    sound:
+      collection: LasersDrop
+  - type: EmitSoundOnLand
+    sound:
+      collection: LasersDrop
+  # Goobstation edit end
 
 - type: entity
   id: BaseWeaponPowerCell
@@ -125,7 +144,11 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
-  - type: MagazineAmmoProvider
+  - type: HitscanBatteryAmmoProvider
+    proto: RedLightLaser
+    fireCost: 50
+  - type: PowerCellSlot
+    cellSlotId: gun_magazine
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -205,6 +228,8 @@
     magState: mag
     steps: 5
     zeroVisible: true
+  - type: StaticPrice # Mono
+    price: 200
 
 - type: entity
   name: retro laser blaster
@@ -221,10 +246,8 @@
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   - type: HitscanBatteryAmmoProvider
-    proto: RedLaser
+    proto: RedMediumLaser
     fireCost: 83.3
-  - type: Item
-    size: Normal
   - type: MagazineVisuals
     magState: mag
     steps: 5
@@ -255,7 +278,7 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/makeshift.rsi
   - type: HitscanBatteryAmmoProvider
-    proto: RedLightLaser
+    proto: RedLaser
     fireCost: 62.5
   - type: Battery
     maxCharge: 500
@@ -328,7 +351,7 @@
   description: A simple civilian grade laser carbine, the workhorse of many private security organizations. # Frontier: description
   components:
   - type: StaticPrice
-    price: 420
+    price: 500
   - type: HitscanBatteryAmmoProvider
     proto: RedLaser
     fireCost: 62.5
@@ -474,7 +497,9 @@
   - type: Battery
     maxCharge: 4000
     startingCharge: 4000
-
+  - type: Tag
+    tags:
+    - TurretCompatibleWeapon
 
 - type: entity
   name: portable particle decelerator
@@ -732,8 +757,6 @@
   id: WeaponAdvancedLaser
   description: An experimental civilian grade high-energy laser pistol with a self-charging nuclear battery.
   components:
-  - type: Item
-    size: Normal  # Intentionally larger than other pistols
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/advancedlasergun.rsi
     layers:
@@ -763,6 +786,7 @@
   - type: Tag
     tags:
     - AdvancedLaserPistol
+    - Sidearm
 
 - type: entity
   name: C.H.I.M.P. handcannon

@@ -1,4 +1,6 @@
 # SPDX-FileCopyrightText: 2025 Avalon
+# SPDX-FileCopyrightText: 2025 Honestly101
+# SPDX-FileCopyrightText: 2025 Ilya246
 # SPDX-FileCopyrightText: 2025 Redrover1760
 # SPDX-FileCopyrightText: 2025 ScyronX
 # SPDX-FileCopyrightText: 2025 starch
@@ -109,14 +111,14 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
+        - BorgChassis
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
-    # Shit punching damage, equip a melee weapon if you want to get up close
     damage:
       types:
         Blunt: 25
-        Structural: 0
+        Structural: 260
   - type: Destructible
     thresholds:
     - trigger:
@@ -131,7 +133,7 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: RadarConsole
-    maxRange: 256
+    maxRange: 512
     followEntity: true
   - type: Appearance
   - type: GenericVisualizer
@@ -143,7 +145,7 @@
     baseSprintSpeed: 1
     baseWeightlessModifier: 40
   - type: RadarBlip
-    radarColor: "#CF0E0E"
+    radarColor: "#E3E3E3"
     scale: 3
     requireNoGrid: true
     shape: square
@@ -159,6 +161,11 @@
     - DoorBumpOpener
     - FootstepSound
     - Broadsword
+  - type: Prying
+    pryPowered: true
+    speedModifier: 3
+    useSound:
+      path: /Audio/Items/jaws_pry.ogg
 
 - type: entity
   id: AFInterceptorBattery
@@ -213,14 +220,14 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
+        - BorgChassis
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
-    # Shit punching damage, equip a melee weapon if you want to get up close
     damage:
       types:
         Blunt: 25
-        Structural: 0
+        Structural: 260
   - type: Destructible
     thresholds:
     - trigger:
@@ -235,7 +242,7 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: RadarConsole
-    maxRange: 256
+    maxRange: 512
     followEntity: true
   - type: Appearance
   - type: GenericVisualizer
@@ -249,7 +256,7 @@
   - type: Damageable
     damageModifierSet: HeavyArmorNT
   - type: RadarBlip
-    radarColor: "#CF0E0E"
+    radarColor: "#E3E3E3"
     scale: 3
     requireNoGrid: true
     shape: square
@@ -264,6 +271,12 @@
     - FootstepSound
     - Halberd
     - MilitaryMechBounty
+  - type: Prying
+    pryPowered: true
+    speedModifier: 3
+    useSound:
+      path: /Audio/Items/jaws_pry.ogg
+
 
 - type: entity
   id: AFInterceptorG
@@ -308,14 +321,14 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
+        - BorgChassis
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
-    # Shit punching damage, equip a melee weapon if you want to get up close
     damage:
       types:
         Blunt: 25
-        Structural: 0
+        Structural: 260
   - type: Destructible
     thresholds:
     - trigger:
@@ -331,8 +344,11 @@
         acts: ["Destruction"]
   # Terrible radar, mostly good for navigating planets
   - type: RadarConsole
-    maxRange: 56
+    maxRange: 256
     followEntity: true
+  - type: DetectionRangeMultiplier
+    infraredMultiplier: 0.5 # from 1
+    visualMultiplier: 3 # from 4
   - type: Appearance
   - type: GenericVisualizer
   - type: MovementAlwaysTouching
@@ -343,7 +359,7 @@
   - type: Damageable
     damageModifierSet: HeavyArmorNT
   - type: RadarBlip
-    radarColor: "#CF0E0E"
+    radarColor: "#E3E3E3"
     scale: 3
     requireNoGrid: true
     shape: square
@@ -358,6 +374,11 @@
     - FootstepSound
     - Sabre
     - MilitaryMechBounty
+  - type: Prying
+    pryPowered: true
+    speedModifier: 3
+    useSound:
+      path: /Audio/Items/jaws_pry.ogg
 
 #4x4 mechas
 - type: entity
@@ -403,14 +424,14 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
+        - BorgChassis
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
-    # Shit punching damage, equip a melee weapon if you want to get up close
     damage:
       types:
         Blunt: 50
-        Structural: 0
+        Structural: 550
   - type: Destructible
     thresholds:
     - trigger:
@@ -425,7 +446,7 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: RadarConsole
-    maxRange: 256
+    maxRange: 512
     followEntity: true
   - type: Appearance
   - type: GenericVisualizer
@@ -437,7 +458,7 @@
     baseSprintSpeed: 1
     baseWeightlessModifier: 25
   - type: RadarBlip
-    radarColor: "#CF0E0E"
+    radarColor: "#E3E3E3"
     scale: 3
     requireNoGrid: true
     shape: square
@@ -454,6 +475,12 @@
     - FootstepSound
     - Flail
     - MilitaryMechBounty
+  - type: Prying
+    pryPowered: true
+    speedModifier: 5
+    useSound:
+      path: /Audio/Items/jaws_pry.ogg
+
 
 - type: entity
   id: AFFlailE
@@ -498,14 +525,14 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
+        - BorgChassis
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
-    # Shit punching damage, equip a melee weapon if you want to get up close
     damage:
       types:
         Blunt: 50
-        Structural: 0
+        Structural: 550
   - type: Destructible
     thresholds:
     - trigger:
@@ -520,8 +547,11 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: RadarConsole
-    maxRange: 768 #It's a radar/EWAC platform.
+    maxRange: 1024 #It's a radar/EWAC platform.
     followEntity: true
+  - type: DetectionRangeMultiplier
+    infraredMultiplier: 1.5 # from 1
+    visualMultiplier: 8 # from 4
   - type: Appearance
   - type: GenericVisualizer
   - type: CanMoveInAir
@@ -532,7 +562,7 @@
     baseSprintSpeed: 0.5
     baseWeightlessModifier: 20
   - type: RadarBlip
-    radarColor: "#CF0E0E"
+    radarColor: "#E3E3E3"
     scale: 3
     requireNoGrid: true
     shape: square
@@ -549,6 +579,11 @@
     - FootstepSound
     - Spyglass
     - MilitaryMechBounty
+  - type: Prying
+    pryPowered: true
+    speedModifier: 5
+    useSound:
+      path: /Audio/Items/jaws_pry.ogg
 
 - type: entity
   id: AFMace
@@ -593,6 +628,7 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
+        - BorgChassis
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -600,7 +636,7 @@
     damage:
       types:
         Blunt: 50
-        Structural: 0
+        Structural: 550
   - type: Destructible
     thresholds:
     - trigger:
@@ -615,7 +651,7 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: RadarConsole
-    maxRange: 256
+    maxRange: 512
     followEntity: true
   - type: Appearance
   - type: GenericVisualizer
@@ -627,7 +663,7 @@
     baseSprintSpeed: 1
     baseWeightlessModifier: 30
   - type: RadarBlip
-    radarColor: "#CF0E0E"
+    radarColor: "#E3E3E3"
     scale: 3
     requireNoGrid: true
     shape: square
@@ -644,3 +680,8 @@
     - FootstepSound
     - Mace
     - MilitaryMechBounty
+  - type: Prying
+    pryPowered: true
+    speedModifier: 5
+    useSound:
+      path: /Audio/Items/jaws_pry.ogg

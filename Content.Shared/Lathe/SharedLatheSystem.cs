@@ -1,3 +1,16 @@
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 ubis1
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-FileCopyrightText: 2024 Whatstone
+// SPDX-FileCopyrightText: 2025 Coenx-flex
+// SPDX-FileCopyrightText: 2025 Cojoke
+// SPDX-FileCopyrightText: 2025 Ilya246
+// SPDX-FileCopyrightText: 2025 ScarKy0
+// SPDX-FileCopyrightText: 2025 deltanedas
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared.Emag.Systems;
@@ -66,6 +79,48 @@ public abstract class SharedLatheSystem : EntitySystem
         return _proto.TryIndex<LatheRecipePrototype>(recipe, out var proto) && CanProduce(uid, proto, amount, component);
     }
 
+    // Mono
+    public Dictionary<ProtoId<MaterialPrototype>, int> GetEndMaterialAmounts(Entity<LatheComponent?> ent)
+    {
+        if (!Resolve(ent, ref ent.Comp))
+            return new();
+
+        var currentMaterial = _materialStorage.GetStoredMaterials(ent.Owner);
+        foreach (var batch in ent.Comp.Queue)
+        {
+            var recipe = batch.Recipe;
+            foreach (var (material, needed) in recipe.Materials)
+            {
+                var adjustedAmount = AdjustMaterial(needed, recipe.ApplyMaterialDiscount, ent.Comp.FinalMaterialUseMultiplier);
+                currentMaterial[material] -= adjustedAmount * (batch.ItemsRequested - batch.ItemsPrinted);
+            }
+        }
+        return currentMaterial;
+    }
+
+    // Mono
+    /// <summary>
+    /// Whether we'll be able to produce this if we queue this to the end.
+    /// </summary>
+    public bool CanProduceEnd(Entity<LatheComponent?> ent, LatheRecipePrototype recipe, int amount = 1)
+    {
+        if (!Resolve(ent, ref ent.Comp))
+            return false;
+        if (!HasRecipe(ent, recipe, ent.Comp))
+            return false;
+
+        var endAmts = GetEndMaterialAmounts(ent);
+
+        foreach (var (material, needed) in recipe.Materials)
+        {
+            var adjustedAmount = AdjustMaterial(needed, recipe.ApplyMaterialDiscount, ent.Comp.FinalMaterialUseMultiplier);
+
+            if (endAmts.GetValueOrDefault(material) < adjustedAmount * amount)
+                return false;
+        }
+        return true;
+    }
+
     public bool CanProduce(EntityUid uid, LatheRecipePrototype recipe, int amount = 1, LatheComponent? component = null)
     {
         if (!Resolve(uid, ref component))
@@ -75,7 +130,7 @@ public abstract class SharedLatheSystem : EntitySystem
 
         foreach (var (material, needed) in recipe.Materials)
         {
-            var adjustedAmount = AdjustMaterial(needed, recipe.ApplyMaterialDiscount, component.MaterialUseMultiplier);
+            var adjustedAmount = AdjustMaterial(needed, recipe.ApplyMaterialDiscount, component.FinalMaterialUseMultiplier);
 
             if (_materialStorage.GetMaterialAmount(uid, material) < adjustedAmount * amount)
                 return false;
@@ -196,7 +251,7 @@ public abstract class SharedLatheSystem : EntitySystem
     /// </summary>
     public void SetLatheMultipliers(Entity<LatheComponent?> ent, float? materialUse = null, float? time = null)
     {
-        if (!Resolve(ent, ref ent.Comp))
+        if (!Resolve(ent, ref ent.Comp, false))
             return;
 
         if (materialUse != null)
@@ -215,6 +270,34 @@ public abstract class SharedLatheSystem : EntitySystem
             var old = ent.Comp.TimeMultiplier;
             ent.Comp.TimeMultiplier = time.Value;
             ent.Comp.FinalTimeMultiplier *= time.Value / old;
+
+            DirtyField(ent, nameof(LatheComponent.TimeMultiplier));
+            DirtyField(ent, nameof(LatheComponent.FinalTimeMultiplier));
+        }
+    }
+
+    // Monolith
+    /// <summary>
+    /// Multiplies multipliers for this lathe before modification by machine parts, for non-null arguments.
+    /// </summary>
+    public void MultiplyLatheMultipliers(Entity<LatheComponent?> ent, float? materialUse = null, float? time = null)
+    {
+        if (!Resolve(ent, ref ent.Comp, false))
+            return;
+
+        if (materialUse != null)
+        {
+            ent.Comp.MaterialUseMultiplier *= materialUse.Value;
+            ent.Comp.FinalMaterialUseMultiplier *= materialUse.Value;
+
+            DirtyField(ent, nameof(LatheComponent.MaterialUseMultiplier));
+            DirtyField(ent, nameof(LatheComponent.FinalMaterialUseMultiplier));
+        }
+
+        if (time != null)
+        {
+            ent.Comp.TimeMultiplier *= time.Value;
+            ent.Comp.FinalTimeMultiplier *= time.Value;
 
             DirtyField(ent, nameof(LatheComponent.TimeMultiplier));
             DirtyField(ent, nameof(LatheComponent.FinalTimeMultiplier));

@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2025 Redrover1760
+# SPDX-FileCopyrightText: 2025 ScyronX
+# SPDX-FileCopyrightText: 2025 core-mene
+# SPDX-FileCopyrightText: 2025 starch
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: latheRecipePack
   id: Translators
   recipes:
@@ -5,15 +12,16 @@
   - BubblishTranslator
   - NekomimeticTranslator
   - DraconicTranslator
-  - SolCommonTranslator
+  # - SolCommonTranslator
   - RootSpeakTranslator
   - MofficTranslator
   - XenoTranslator
   - AnimalTranslator
   - ValyrianStandardTranslator
   - ChittinTranslator
-  - SiikMaasTranslator
-  - MarishTranslator
+  - GaryTranslator # Mono
+  # - SiikMaasTranslator
+  # - MarishTranslator
 
 - type: latheRecipePack
   id: TranslatorImplanters
@@ -24,10 +32,11 @@
   - BubblishTranslatorImplanter
   - NekomimeticTranslatorImplanter
   - DraconicTranslatorImplanter
-  - SolCommonTranslatorImplanter
+#  - SolCommonTranslatorImplanter
   - RootSpeakTranslatorImplanter
   - MofficTranslatorImplanter
   - ValyrianStandardTranslatorImplanter
   - ChittinTranslatorImplanter
-  - SiikMaasTranslatorImplanter
-  - MarishTranslatorImplanter
+  - GaryTranslatorImplanter # Mono
+#  - SiikMaasTranslatorImplanter
+#  - MarishTranslatorImplanter

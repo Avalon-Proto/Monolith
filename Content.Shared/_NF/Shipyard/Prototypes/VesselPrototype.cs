@@ -3,7 +3,10 @@
 // SPDX-FileCopyrightText: 2024 Whatstone
 // SPDX-FileCopyrightText: 2024 neuPanda
 // SPDX-FileCopyrightText: 2025 Ark
+// SPDX-FileCopyrightText: 2025 Coenx-flex
+// SPDX-FileCopyrightText: 2025 Cojoke
 // SPDX-FileCopyrightText: 2025 Dvir
+// SPDX-FileCopyrightText: 2025 Ilya246
 // SPDX-FileCopyrightText: 2025 Redrover1760
 // SPDX-FileCopyrightText: 2025 ark1368
 // SPDX-FileCopyrightText: 2025 sleepyyapril
@@ -113,8 +116,18 @@ public sealed class VesselPrototype : IPrototype, IInheritingPrototype
     /// <summary>
     ///     The price markup of the vessel testing
     /// </summary>
+    [DataField("minPriceMarkup")]
+    public float MinPriceMarkup = 1f; // Mono change: 1.05 > 1
+
+    /// <summary>
+    ///     The price markup of the vessel testing for non capitals- Mono
+    /// </summary>
+    [DataField("maxPriceMarkup")]
+    public float MaxPriceMarkup = 2.5f; // Mono
+
+    // Mono
     [DataField]
-    public float MinPriceMarkup = 1.05f;
+    public bool Purchasable = true;
 
     [DataField]
     public HashSet<ProtoId<TagPrototype>> Tags = new();

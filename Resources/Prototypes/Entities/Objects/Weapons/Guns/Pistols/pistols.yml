@@ -39,11 +39,13 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth
 # SPDX-FileCopyrightText: 2024 nikthechampiongr
 # SPDX-FileCopyrightText: 2025 BramvanZijp
+# SPDX-FileCopyrightText: 2025 Daniel Lenrd
 # SPDX-FileCopyrightText: 2025 Eden077
 # SPDX-FileCopyrightText: 2025 KiraZen_
 # SPDX-FileCopyrightText: 2025 Redrover1760
 # SPDX-FileCopyrightText: 2025 UltimateJester
 # SPDX-FileCopyrightText: 2025 core-mene
+# SPDX-FileCopyrightText: 2025 halycon
 # SPDX-FileCopyrightText: 2025 starch
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -121,6 +123,21 @@
   - type: ItemTax # Mono
     taxAccounts:
       nfsd: 0.2
+  - type: WieldedCrosshair
+    rsi:
+      sprite: _RMC14/Interface/MousePointer/pistol_mouse.rsi
+      state: all
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      collection: PistolsPickUp
+  - type: EmitSoundOnDrop
+    sound:
+      collection: PistolsDrop
+  - type: EmitSoundOnLand
+    sound:
+      collection: PistolsDrop
+  # Goobstation edit end
 
 - type: entity
   name: LWC PT-45A viper (9x19mm)
@@ -156,6 +173,9 @@
       gun_chamber: !type:ContainerSlot
   - type: StaticPrice # Mono - 200 from frontier 1k
     price: 200
+  - type: Gun # Mono change - Sound for viper
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/viper_fire.ogg
 
 - type: entity
   name: LWC PT-45C echis (9x19mm)
@@ -228,7 +248,7 @@
   - type: AmmoCounter
 
 - type: entity
-  name: CS PT-72 cobra (6.35x40mm)
+  name: CS PT-72 cobra (635x40mm)
   parent: [ BaseWeaponPistol, BaseC3SyndicateContraband ] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
   id: WeaponPistolCobra
   description: A rugged, robust spec-ops handgun with an inbuilt silencer. Uses 6.35x40mm Caseless ammo. A common sight among Ashen Insurgents, they are the most commonly seen sidearm among boarding crews or agents.
@@ -257,21 +277,21 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: Magazine6.35x40mmCaselessPistol
+        startingItem: Magazine635x40mmCaselessPistol
         insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
         priority: 2
         whitelist:
           tags:
-            - Magazine6.35x40mmCaselessPistol
+            - Magazine635x40mmCaselessPistol
         whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
-        startingItem: Cartridge6.35x40mmCaseless
+        startingItem: Cartridge635x40mmCaseless
         priority: 1
         whitelist:
           tags:
-            - Cartridge6.35x40mmCaseless
+            - Cartridge635x40mmCaseless
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
@@ -320,6 +340,8 @@
         whitelist:
           tags:
             - Cartridge45_ACPFMJ
+  - type: StaticPrice # Mono
+    price: 150
 
 - type: entity
   name: NT N1984 (.45 magnum)

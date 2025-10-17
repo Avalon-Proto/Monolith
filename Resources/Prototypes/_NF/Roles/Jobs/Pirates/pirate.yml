@@ -27,6 +27,7 @@
   weight: 20
   displayWeight: 20
   setPreference: true
+  guides: [ BasicLore, AshenRepublic ] # Mono
   access:
   - Pirate
   accessGroups:
@@ -47,6 +48,8 @@
     - Freespeak
     languagesUnderstood:
     - Freespeak
+    removeLanguagesSpoken:
+    - TauCetiBasic
   - !type:GiveItemOnHolidaySpecial # Even pirates get a piece of cake.
     holiday: FrontierBirthday
     prototype: FrontierBirthdayGift

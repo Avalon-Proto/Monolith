@@ -15,13 +15,16 @@
 # SPDX-FileCopyrightText: 2024 Nemanja
 # SPDX-FileCopyrightText: 2024 Plykiya
 # SPDX-FileCopyrightText: 2024 Whatstone
+# SPDX-FileCopyrightText: 2025 Onezero0
+# SPDX-FileCopyrightText: 2025 ScyronX
 # SPDX-FileCopyrightText: 2025 core-mene
 # SPDX-FileCopyrightText: 2025 sleepyyapril
+# SPDX-FileCopyrightText: 2025 starch
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  id: Bullet4.6x30mm
+  id: Bullet46x30mm
   name: bullet (4.6x30mm FMJ)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
@@ -30,9 +33,10 @@
     damage:
       types:
         Piercing: 16
+    armorPenetration: 0.075
 
 - type: entity
-  id: Bullet4.6x30mmPractice
+  id: Bullet46x30mmPractice
   name: bullet (4.6x30mm practice)
   parent: BaseBulletPractice
   categories: [ HideSpawnMenu ]
@@ -41,9 +45,10 @@
     damage:
       types:
         Blunt: 2
+    armorPenetration: 0.025
 
 - type: entity
-  id: Bullet4.6x30mmRubber
+  id: Bullet46x30mmRubber
   name: bullet (4.6x30mm rubber)
   parent: BaseBulletRubber
   categories: [ HideSpawnMenu ]
@@ -52,9 +57,10 @@
     damage:
       types:
         Blunt: 3
+    armorPenetration: 0.025
 
 - type: entity
-  id: Bullet4.6x30mmIncendiary
+  id: Bullet46x30mmIncendiary
   parent: BaseBulletIncendiary
   name: bullet (4.6x30mm incendiary)
   categories: [ HideSpawnMenu ]
@@ -64,9 +70,10 @@
       types:
         Blunt: 3
         Heat: 15
+    armorPenetration: 0.025
 
 - type: entity
-  id: Bullet4.6x30mmUranium
+  id: Bullet46x30mmUranium
   parent: BaseBulletUranium
   name: bullet (4.6x30mm uranium)
   categories: [ HideSpawnMenu ]
@@ -76,10 +83,11 @@
       types:
         Radiation: 6
         Piercing: 10
+    armorPenetration: 0.025
 
 # Upstream
 - type: entity
-  id: Bullet4.6x30mmEmp
+  id: Bullet46x30mmEmp
   name: bullet (4.6x30mm emp)
   parent: BaseBulletEmp
   categories: [ HideSpawnMenu ]
@@ -88,3 +96,47 @@
     damage:
       types:
         Shock: 0
+    armorPenetration: 0.025
+
+# Mono AP syst
+# + 0.05 base AP
+#anti-flesh:
+- type: entity
+  id: Bullet46x30mmHP
+  parent: BaseBullet
+  name: bullet (4.6x30mm hollow-point)
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Slash: 3
+        Piercing: 24
+    armorPenetration: -0.55
+
+- type: entity
+  id: Bullet46x30mmRIP
+  parent: BaseBullet
+  name: bullet (4.6x30mm RIP)
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Slash: 5
+        Piercing: 30
+    armorPenetration: -0.9
+
+#armor-piercing:
+
+- type: entity
+  id: Bullet46x30mmPlasteelAP
+  parent: BaseBullet
+  name: bullet (4.6x30mm AP)
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 8
+    armorPenetration: 0.6

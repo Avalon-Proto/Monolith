@@ -46,7 +46,9 @@
 # SPDX-FileCopyrightText: 2024 Verm
 # SPDX-FileCopyrightText: 2024 Wiebe Geertsma
 # SPDX-FileCopyrightText: 2024 lzk
+# SPDX-FileCopyrightText: 2025 Blu
 # SPDX-FileCopyrightText: 2025 BlueHNT
+# SPDX-FileCopyrightText: 2025 Redrover1760
 # SPDX-FileCopyrightText: 2025 SlimSlam
 # SPDX-FileCopyrightText: 2025 Southbridge
 # SPDX-FileCopyrightText: 2025 Spessmann
@@ -189026,7 +189028,7 @@ entities:
     - type: Transform
       pos: 113.5,42.5
       parent: 1
-- proto: Magazine4.6x30mmSubMachineGunTopMountedFMJ
+- proto: Magazine46x30mmSubMachineGunTopMountedFMJ
   entities:
   - uid: 28294
     components:

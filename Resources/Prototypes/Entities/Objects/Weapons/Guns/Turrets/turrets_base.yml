@@ -1,4 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Coenx-flex
+# SPDX-FileCopyrightText: 2025 Cojoke
 # SPDX-FileCopyrightText: 2025 Ilya246
+# SPDX-FileCopyrightText: 2025 Redrover1760
 # SPDX-FileCopyrightText: 2025 chromiumboy
 # SPDX-FileCopyrightText: 2025 core-mene
 # SPDX-FileCopyrightText: 2025 starch
@@ -83,6 +86,8 @@
   - type: NoRotateOnMove
   - type: Input
     context: "human"
+  - type: StaticPrice
+    price: 100
 
 - type: entity
   parent: BaseWeaponTurret
@@ -91,6 +96,9 @@
   name: ballistic turret
   abstract: true
   components:
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
   - type: Battery
     maxCharge: 2000
     startingCharge: 2000
@@ -107,7 +115,7 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/gun_sentry.ogg
   - type: ProjectileBatteryAmmoProvider
-    proto: Cartridge6.35x40mmCaseless
+    proto: Cartridge635x40mmCaseless
     fireCost: 25
   - type: BatterySelfRecharger
     autoRecharge: true

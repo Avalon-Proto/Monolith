@@ -19,11 +19,13 @@
   #- WeaponLMGMR8BTSF
   - WeaponRifleMR8CTSF
   - WeaponRifleXlr556Tsf
+  - WeaponLMGGrizzlyTSF
 
 - type: latheRecipePack
   id: MonoTSFVouchersDynamic
   recipes:
   - FlyssaVoucherTSF
+  - PolarisVoucherTSF
 
 - type: latheRecipePack
   id: MonoTSFMiscDynamic

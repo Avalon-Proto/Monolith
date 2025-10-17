@@ -1,4 +1,6 @@
 # SPDX-FileCopyrightText: 2025 BoskiYourk
+# SPDX-FileCopyrightText: 2025 Ilya246
+# SPDX-FileCopyrightText: 2025 Redrover1760
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -8,10 +10,10 @@
   name: BYP Kupol
   description: A gunnery unit made to make up for the lacking fire-power of the Ledokol.
   limit: 1
-  price: 250000
+  price: 225000
   category: Small
   group: Custom
-  access: USSPLedokolAttatchment
+  access: USSP
   shuttlePath: /Maps/_Mono/Shuttles/USSP/Ledokol/Attatchments/kupol.yml
   guidebookPage: Null
 

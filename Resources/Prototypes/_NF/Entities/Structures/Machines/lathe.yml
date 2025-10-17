@@ -4,10 +4,12 @@
 # SPDX-FileCopyrightText: 2024 FoxxoTrystan
 # SPDX-FileCopyrightText: 2024 Salvantrix
 # SPDX-FileCopyrightText: 2024 chrome-cirrus
+# SPDX-FileCopyrightText: 2025 Daniel Lenrd
 # SPDX-FileCopyrightText: 2025 FireFoxPhoenix
 # SPDX-FileCopyrightText: 2025 GreaseMonk
 # SPDX-FileCopyrightText: 2025 LukeZurg22
 # SPDX-FileCopyrightText: 2025 Milon
+# SPDX-FileCopyrightText: 2025 Onezero0
 # SPDX-FileCopyrightText: 2025 Redrover1760
 # SPDX-FileCopyrightText: 2025 Whatstone
 # SPDX-FileCopyrightText: 2025 blackknight954
@@ -97,8 +99,13 @@
     runningState: icon
     staticPacks:
     - NFEngineeringTechfabDeprecatedStatic
+    # Mono
+    - GasMiningStatic
+    - AutomationStatic
+    # Mono End
     dynamicPacks:
     - NFEngineeringTechfabDeprecated
+    - RCD # Mono
   - type: PirateBountyItem # Mono
     id: Techfab
 
@@ -163,19 +170,19 @@
     runningState: icon
     staticPacks:
     - NFNfsdTechfabDeprecatedStatic
-    - CivilianAmmoRecipePack
+    - StaticAmmoRecipePack
     dynamicPacks:
     - NFNfsdTechfabDeprecated
-    - AdvancedAmmoRecipePack
+    - DynamicAmmoRecipePack
     # Mono start
     - MonoTSFWeaponsDynamicMelee
     - MonoTSFWeaponsDynamicRanged
     - MonoTSFMiscDynamic
-    - MonoTSFAmmo
     - UniversalShellAmmo
     - UniversalRailgunAmmo
     - UniversalMissileAmmo
     - UniversalOrdinance
+    - ResearchedExplosives
     # Mono end
   - type: EmagLatheRecipes
     emagStaticPacks:
@@ -209,24 +216,25 @@
     runningState: icon
     staticPacks:
     - NFMercenaryTechfabDeprecatedStatic
-    - CivilianAmmoRecipePack
+    - StaticAmmoRecipePack
     - MonoRestraintsStatic # Mono
     dynamicPacks:
     - NFMercenaryTechfabDeprecated
-    - AdvancedAmmoRecipePack
+    - DynamicAmmoRecipePack
     # Mono start
     - MonoTSFWeaponsDynamicMelee
     - MonoTSFWeaponsDynamicRanged
     - MonoTSFMiscDynamic
-    - MonoTSFAmmo
     - MonoRogueWeaponsDynamicMelee
     - MonoRogueWeaponsDynamicRanged
     - MonoRogueMiscDynamic
-    - MonoRogueAmmo
     - MonoUSSPMiscDynamic
     - MonoUSSPWeaponsDynamicRanged
-    - MonoUSSPAmmo
+    # Universal shit (stuff like shipgun ammo)
+    - UniversalRailgunAmmo
+    - UniversalMissileAmmo
     - UniversalShellAmmo
+    - UniversalOrdinance
     # Mono end
   - type: EmagLatheRecipes
     emagStaticPacks:
@@ -273,25 +281,26 @@
     runningState: icon
     staticPacks:
     - NFHackedMercenaryTechfabDeprecatedStatic
-    - CivilianAmmoRecipePack
+    - StaticAmmoRecipePack
     - MonoRestraintsStatic
     dynamicPacks:
     - NFHackedMercenaryTechfabDeprecated
-    - AdvancedAmmoRecipePack
+    - DynamicAmmoRecipePack
     - SmartGun # Goobstation
     # Mono start
     - MonoTSFWeaponsDynamicMelee
     - MonoTSFWeaponsDynamicRanged
     - MonoTSFMiscDynamic
-    - MonoTSFAmmo
     - MonoRogueWeaponsDynamicMelee
     - MonoRogueWeaponsDynamicRanged
     - MonoRogueMiscDynamic
-    - MonoRogueAmmo
     - MonoUSSPMiscDynamic
     - MonoUSSPWeaponsDynamicRanged
-    - MonoUSSPAmmo
+    # Universal shit (stuff like shipgun ammo)
+    - UniversalRailgunAmmo
+    - UniversalMissileAmmo
     - UniversalShellAmmo
+    - UniversalOrdinance
     # Mono end
   - type: PirateBountyItem # Mono
     id: Techfab

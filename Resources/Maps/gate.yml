@@ -46,7 +46,9 @@
 # SPDX-FileCopyrightText: 2024 brainfood1183
 # SPDX-FileCopyrightText: 2024 deltanedas
 # SPDX-FileCopyrightText: 2024 joshepvodka
+# SPDX-FileCopyrightText: 2025 Blu
 # SPDX-FileCopyrightText: 2025 BlueHNT
+# SPDX-FileCopyrightText: 2025 Redrover1760
 # SPDX-FileCopyrightText: 2025 core-mene
 # SPDX-FileCopyrightText: 2025 starch
 #
@@ -24257,7 +24259,7 @@ entities:
     - type: Transform
       pos: 51.87152,57.657894
       parent: 2
-- proto: BoxMagazine5.56x45mmPractice
+- proto: BoxMagazine556x45mmPractice
   entities:
   - uid: 39924
     components:
@@ -140904,7 +140906,7 @@ entities:
     - type: Transform
       pos: 51.36094,56.594063
       parent: 2
-- proto: Magazine7.62x39mmFMJ
+- proto: Magazine762x39mmFMJ
   entities:
   - uid: 8376
     components:
@@ -140943,7 +140945,7 @@ entities:
     - type: Transform
       pos: 52.681328,57.671314
       parent: 2
-- proto: Magazine4.6x30mmSubMachineGunTopMountedFMJ
+- proto: Magazine46x30mmSubMachineGunTopMountedFMJ
   entities:
   - uid: 1809
     components:

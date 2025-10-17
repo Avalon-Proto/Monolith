@@ -1,5 +1,7 @@
 # SPDX-FileCopyrightText: 2025 Ark
 # SPDX-FileCopyrightText: 2025 Avalon
+# SPDX-FileCopyrightText: 2025 Honestly101
+# SPDX-FileCopyrightText: 2025 Ilya246
 # SPDX-FileCopyrightText: 2025 Redrover1760
 # SPDX-FileCopyrightText: 2025 starch
 #
@@ -74,6 +76,7 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
+        - BorgChassis # Goobstation - Let borgs pilot mechs
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -93,6 +96,11 @@
     - FootstepSound
     - RipleyMkII
     - CivilianMechBounty # Mono
+  - type: Prying # Mono
+    pryPowered: true
+    speedModifier: 2
+    useSound:
+      path: /Audio/Items/jaws_pry.ogg
 
 - type: entity
   id: MechRipley2Battery
@@ -133,6 +141,7 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
+        - BorgChassis # Goobstation - Let borgs pilot mechs
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -153,6 +162,16 @@
     - FootstepSound
     - Clarke
     - CivilianMechBounty # Mono
+  - type: RadarBlip # Mono
+    radarColor: "#E3E3E3"
+    scale: 1.5
+    requireNoGrid: true
+    shape: square
+  - type: Prying # Mono
+    pryPowered: true
+    speedModifier: 2
+    useSound:
+      path: /Audio/Items/jaws_pry.ogg
 
 - type: entity
   id: MechClarkeBattery
@@ -207,6 +226,7 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
+        - BorgChassis # Goobstation - Let borgs pilot mechs
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -228,6 +248,17 @@
     - FootstepSound
     - Gygax
     - MilitaryMechBounty # Mono
+  - type: RadarBlip # Mono
+    radarColor: "#E3E3E3"
+    scale: 1.5
+    requireNoGrid: true
+    shape: square
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 3
+    useSound:
+      path: /Audio/Items/jaws_pry.ogg
 
 - type: entity
   id: MechGygaxBattery
@@ -269,6 +300,7 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
+        - BorgChassis # Goobstation - Let borgs pilot mechs
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -295,6 +327,16 @@
     - FootstepSound
     - Durand
     - MilitaryMechBounty # Mono
+  - type: RadarBlip # Mono
+    radarColor: "#E3E3E3"
+    scale: 1.5
+    requireNoGrid: true
+    shape: square
+  - type: Prying # Mono
+    pryPowered: true
+    speedModifier: 3
+    useSound:
+      path: /Audio/Items/jaws_pry.ogg
 
 - type: entity
   id: MechDurandBattery
@@ -339,6 +381,7 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
+        - BorgChassis # Goobstation - Let borgs pilot mechs
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -364,6 +407,16 @@
     - DoorBumpOpener
     - FootstepSound
     - MilitaryMechBounty # Mono
+  - type: RadarBlip # Mono
+    radarColor: "#E3E3E3"
+    scale: 1.5
+    requireNoGrid: true
+    shape: square
+  - type: Prying # Mono
+    pryPowered: true
+    speedModifier: 3
+    useSound:
+      path: /Audio/Items/jaws_pry.ogg
 
 - type: entity
   id: MechMarauderBattery
@@ -418,6 +471,7 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
+        - BorgChassis # Goobstation - Let borgs pilot mechs
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -443,6 +497,16 @@
     - DoorBumpOpener
     - FootstepSound
     - MilitaryMechBounty # Mono
+  - type: RadarBlip # Mono
+    radarColor: "#E3E3E3"
+    scale: 1.5
+    requireNoGrid: true
+    shape: square
+  - type: Prying # Mono
+    pryPowered: true
+    speedModifier: 3
+    useSound:
+      path: /Audio/Items/jaws_pry.ogg
 
 - type: entity
   id: MechSeraphBattery
@@ -500,6 +564,7 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
+        - BorgChassis # Goobstation - Let borgs pilot mechs
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -525,6 +590,16 @@
     - DoorBumpOpener
     - FootstepSound
     - MilitaryMechBounty # Mono
+  - type: RadarBlip # Mono
+    radarColor: "#E3E3E3"
+    scale: 1.5
+    requireNoGrid: true
+    shape: square
+  - type: Prying # Mono
+    pryPowered: true
+    speedModifier: 3
+    useSound:
+      path: /Audio/Items/jaws_pry.ogg
 
 - type: entity
   id: MechGygaxSyndieBattery
@@ -579,6 +654,7 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
+        - BorgChassis # Goobstation - Let borgs pilot mechs
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -603,6 +679,16 @@
     - DoorBumpOpener
     - FootstepSound
     - MilitaryMechBounty # Mono
+  - type: RadarBlip # Mono
+    radarColor: "#E3E3E3"
+    scale: 1.5
+    requireNoGrid: true
+    shape: square
+  - type: Prying # Mono
+    pryPowered: true
+    speedModifier: 3
+    useSound:
+      path: /Audio/Items/jaws_pry.ogg
 
 - type: entity
   id: MechMaulerSyndieBattery

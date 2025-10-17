@@ -1,5 +1,6 @@
 # SPDX-FileCopyrightText: 2025 Blu
 # SPDX-FileCopyrightText: 2025 Disguised Bear
+# SPDX-FileCopyrightText: 2025 Ilya246
 # SPDX-FileCopyrightText: 2025 Redrover1760
 # SPDX-FileCopyrightText: 2025 RikuTheKiller
 # SPDX-FileCopyrightText: 2025 core-mene
@@ -32,7 +33,7 @@
     radarColor: "#FCBA03"
     scale: 1
     requireNoGrid: true
-    shape: triangle
+    shape: hexagon
   - type: TimedDespawn
     lifetime: 3.5
   - type: PointLight
@@ -49,8 +50,8 @@
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
-    acceleration: 150
-    detectionRange: 300
+    acceleration: 300
+    detectionRange: 500
     scanArc: 35
     launchSpeed: 150
     maxSpeed: 180
@@ -81,7 +82,7 @@
     radarColor: "#FCBA03"
     scale: 1.5
     requireNoGrid: true
-    shape: triangle
+    shape: hexagon
   - type: TimedDespawn
     lifetime: 4.5
   - type: PointLight
@@ -99,7 +100,7 @@
   - type: MiningGatheringHard
   - type: TargetSeeking
     acceleration: 200
-    detectionRange: 450
+    detectionRange: 600
     scanArc: 40
     launchSpeed: 90
     maxSpeed: 210
@@ -130,7 +131,7 @@
     radarColor: "#FCBA03"
     scale: 4
     requireNoGrid: true
-    shape: triangle
+    shape: hexagon
   - type: TimedDespawn
     lifetime: 15
   - type: PointLight
@@ -148,7 +149,7 @@
   - type: MiningGatheringHard
   - type: TargetSeeking
     acceleration: 50
-    detectionRange: 300
+    detectionRange: 600
     scanArc: 30
     launchSpeed: 25
     maxSpeed: 30
@@ -179,7 +180,7 @@
     radarColor: "#FB00FF"
     scale: 1
     requireNoGrid: true
-    shape: triangle
+    shape: hexagon
   - type: TimedDespawn
     lifetime: 6.5
   - type: PointLight
@@ -201,8 +202,8 @@
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
-    acceleration: 100
-    detectionRange: 450
+    acceleration: 200
+    detectionRange: 600
     scanArc: 45
     launchSpeed: 50
     maxSpeed: 125
