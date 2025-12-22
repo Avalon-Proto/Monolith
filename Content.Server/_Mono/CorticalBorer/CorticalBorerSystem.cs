@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Coenx-flex
-// SPDX-FileCopyrightText: 2025 Cojoke
-// SPDX-FileCopyrightText: 2025 ScyronX
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Chat.Managers;
@@ -15,11 +9,12 @@ using Content.Server.Medical;
 using Content.Server.Medical.Components;
 using Content.Server.Nutrition.Components;
 using Content.Shared._Mono.CorticalBorer;
+using Content.Shared._Starlight.CollectiveMind;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Alert;
+using Content.Shared.Chat; // Einstein Engines - Languages
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
-using Content.Shared.Chat; // Einstein Engines - Languages
 using Content.Shared.Database;
 using Content.Shared.Inventory;
 using Content.Shared.MedicalScanner;
@@ -28,7 +23,7 @@ using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
-using Content.Shared.SSDIndicator;
+using Content.Shared.Species.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
@@ -50,9 +45,13 @@ public sealed partial class CorticalBorerSystem : SharedCorticalBorerSystem
     [Dependency] private readonly IChatManager _chat = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly GhostRoleSystem _ghost  = default!;
+    [Dependency] private readonly MetaDataSystem _metaData = default!;
+    [Dependency] private readonly CollectiveMindUpdateSystem _collective = default!;
 
     public override void Initialize()
     {
+        base.Initialize();
+
         SubscribeAbilities();
 
         SubscribeLocalEvent<CorticalBorerComponent, ComponentStartup>(OnStartup);
@@ -189,7 +188,7 @@ public sealed partial class CorticalBorerSystem : SharedCorticalBorerSystem
         UpdateChems(ent, -((int)chemAmount * chemicalPrototype.Cost));
         return true;
     }
-
+    
     private void OnInjectReagentMessage(Entity<CorticalBorerComponent> ent, ref CorticalBorerDispenserInjectMessage message)
     {
         CorticalBorerChemicalPrototype? chemProto = null;
@@ -338,6 +337,21 @@ public sealed partial class CorticalBorerSystem : SharedCorticalBorerSystem
                 infestedComp.RemoveAbilities.Add(actionLay);
         }
 
+        if (TryComp<ReformComponent>(host, out var reformComp) && reformComp.ActionEntity.HasValue)
+        {
+            infestedComp.RemovedReformAction = reformComp.ActionEntity.Value;
+
+            _actions.RemoveAction(host, reformComp.ActionEntity.Value);
+        }
+
+        // add collective mind if we don't have it already
+        var channel = ent.Comp.HivemindChannel;
+        var hadHivemind = _collective.HasCollectiveMind(host, channel);
+        infestedComp.HadHivemind = hadHivemind;
+        if (TryComp<CollectiveMindComponent>(host, out var collectiveComp))
+            infestedComp.OldDefault = collectiveComp.DefaultChannel;
+        _collective.AddCollectiveMind(host, channel, true); // also set default
+
         var str = $"{ToPrettyString(worm)} has taken control over {ToPrettyString(host)}";
 
         Log.Info(str);
@@ -368,6 +382,18 @@ public sealed partial class CorticalBorerSystem : SharedCorticalBorerSystem
         }
         infestedComp.RemoveAbilities = new(); // clear out the list
 
+        if (infestedComp.RemovedReformAction.HasValue && TryComp<ReformComponent>(host, out var reformComp))
+        {
+            var restoredAction = _actions.AddAction(host, reformComp.ActionPrototype);
+
+            if (restoredAction != null)
+            {
+                reformComp.ActionEntity = restoredAction.Value;
+            }
+
+            infestedComp.RemovedReformAction = null;
+        }
+
         if (TryComp<GhostRoleComponent>(worm, out var ghostRole))
             _ghost.RegisterGhostRole((worm, ghostRole)); // re-enable the ghost role after you return to the body
 
@@ -376,6 +402,11 @@ public sealed partial class CorticalBorerSystem : SharedCorticalBorerSystem
             _mind.TransferTo(infestedComp.BorerMindId, infestedComp.Borer);
         if (!TerminatingOrDeleted(infestedComp.OrigininalMindId) && infestedComp.OrigininalMindId.HasValue)
             _mind.TransferTo(infestedComp.OrigininalMindId.Value, host);
+
+        if (!infestedComp.HadHivemind)
+            _collective.RemoveCollectiveMind(host, worm.Comp.HivemindChannel);
+        if (TryComp<CollectiveMindComponent>(host, out var collectiveComp))
+            collectiveComp.DefaultChannel = infestedComp.OldDefault;
 
         infestedComp.ControlTimeEnd = null;
         _container.CleanContainer(infestedComp.ControlContainer);

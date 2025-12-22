@@ -1,10 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Cojoke
-# SPDX-FileCopyrightText: 2025 LukeZurg22
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 # Ship by Starch
 # Minor edits by Redrover
 
@@ -13,7 +6,7 @@
   parent: BaseVesselAntag
   name: TSF-SKR Legionnaire
   description: A light ship equipped with EMP weaponry and 4 frontal autopulsers.
-  price: 75000
+  price: 77500
   category: Small
   group: Security
   access: Security

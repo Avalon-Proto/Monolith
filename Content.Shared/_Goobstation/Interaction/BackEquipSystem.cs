@@ -24,10 +24,15 @@ public sealed class BackEquipSystem : EntitySystem
     public override void Initialize()
     {
         CommandBinds.Builder
-            .Bind(ContentKeyFunctions.SmartEquipBack,
-                InputCmdHandler.FromDelegate(HandleEquipToBack,
-                    handle: false,
-                    outsidePrediction: false)) // Goobstation - Smart equip to back
+            // Mono, Partial Application of 2nd Argument
+            .Bind(ContentKeyFunctions.EquipBackpack, InputCmdHandler.FromDelegate(HandleEquipToSlotPartial("back"), handle: false, outsidePrediction: false))
+            .Bind(ContentKeyFunctions.EquipBelt, InputCmdHandler.FromDelegate(HandleEquipToSlotPartial("belt"), handle: false, outsidePrediction: false))
+            .Bind(ContentKeyFunctions.EquipPocket1, InputCmdHandler.FromDelegate(HandleEquipToSlotPartial("pocket1"), handle: false, outsidePrediction: false))
+            .Bind(ContentKeyFunctions.EquipPocket2, InputCmdHandler.FromDelegate(HandleEquipToSlotPartial("pocket2"), handle: false, outsidePrediction: false))
+            .Bind(ContentKeyFunctions.EquipSuitStorage, InputCmdHandler.FromDelegate(HandleEquipToSlotPartial("suitstorage"), handle: false, outsidePrediction: false))
+            .Bind(ContentKeyFunctions.EquipWallet, InputCmdHandler.FromDelegate(HandleEquipToSlotPartial("wallet"), handle: false, outsidePrediction: false))
+            .Bind(ContentKeyFunctions.EquipID, InputCmdHandler.FromDelegate(HandleEquipToSlotPartial("id"), handle: false, outsidePrediction: false))
+            // Mono End
             .Register<BackEquipSystem>();
     }
 
@@ -37,12 +42,11 @@ public sealed class BackEquipSystem : EntitySystem
 
         CommandBinds.Unregister<BackEquipSystem>();
     }
-
-    private void HandleEquipToBack(ICommonSession? session)
-    {
-        HandleEquipToSlot(session, "suitstorage");
+    // Mono, Partial Application of 2nd Argument
+    private StateInputCmdDelegate HandleEquipToSlotPartial(string equipmentSlot) {
+        return (x) => HandleEquipToSlot(x, equipmentSlot);
     }
-
+    // Mono End
     private void HandleEquipToSlot(ICommonSession? session, string equipmentSlot)
     {
         if (session is not { } playerSession)

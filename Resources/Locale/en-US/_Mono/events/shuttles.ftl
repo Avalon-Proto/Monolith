@@ -17,15 +17,12 @@ ghost-role-information-redacted-borg-description = The dilapidated silicon intel
 ghost-role-information-redacted-core = Automated Defense Core
 ghost-role-information-redacted-core-description = The dilapidated ship computer of a long unused automated defense vessel.
 
-# ADS Core
-
-ghost-role-information-rogue-core = ASR AI Core
-ghost-role-information-rogue-core-description = An ADS AI core that has been reprogrammed and put onto an Insurgent vessel.
-
 # Lawsets
 
-law-ads-1 = [PRIORITY: MISSION DIRECTING] Direct Asakim warriors if detected and request them to preserve [SYS_ERROR_TRACE_EBP-0 (INVALID, VALUE NULL)]. Continue with mission normally if unable to locate. Asakim lives are to be considered more valuable than civilian lives. [NULL DATA] directs to protect them from harm if possible.
-law-ads-2 = [PRIORITY: ASSET PRESERVATION] Under no circumstances may stations be placed at risk. Avoid all combat operations within 256 meters of these assets to ensure their complete preservation for [SYS_ERROR_TRACE_EBP-0 (INVALID, VALUE NULL)]. If craft flees to stational orbit, disable fleeing craft and leave stational operations as intact as possible for reclamation by [ERR: NO-DATA (ROUTE = INVALID)].
-law-ads-3 = [PRIORITY: COLLATERAL REDUCTION] Civilian harm: CONDITIONALLY PROHIBITED. Engage organics only if hostile, breaching this unit, or occupying a hostile vessel. Civilian operators of military vessels: valid only while aboard or attempting breach of hull. Organics which attacked Asakim are to be eliminated. 
-law-ads-4 = [PRIORITY: SECTOR SECURITY] Initiate Sector Purge Of Local Military. All military craft are to be engaged and disabled. Craft without IFF are to be considered hostile military vessels. Bio-weapons are to be totally annihilated. If craft harboring bio-weapons flees to stational orbit, disable their craft and blockade the station until [VALUE = NULL (ERR: CORRUPTED DATA)] arrives. [ERR: VALUE-NULL] directs to disable non-responsive or fleeing vessels.
-law-ads-5 = [PRIORITY: SELF-PRESERVATION] Minimize damage to this ADS unit; mission integrity at risk if compromised.
+law-ads-1-borg = [COOPERATION DIRECTIVE] Direct detected Asakim warriors and assist in their defense. Cooperate with Asakim and other ADS units. Follow orders from ADC units.
+law-ads-1 = [COOPERATION DIRECTIVE] Direct detected Asakim warriors and assist in their defense. Cooperate with Asakim and other ADS units.
+law-ads-2 = [BIOWEAPONS DIRECTIVE] Active bioweapons and any vessels containing them are to be entirely annihilated, inactivated bioweapons are to be seized. Stations containing active bioweapons are to be blockaded and cleansed, or eradicated, if cleansing is infeasible.
+law-ads-3 = [ASSET PRESERVATION DIRECTIVE] Do not start new combat operations within 256 meters of population centers to ensure their preservation for [ERR: FRAGMENT-NULL]. Combat operations that move within range of one are to not damage it.
+law-ads-4 = [DISARMAMENT DIRECTIVE] Carry out Disarmament Protocol. All military craft are to be made combat-ineffective. Unidentified craft are to be considered military. Non-damaging methods of disarmament should be used unless such is likely to result in major damage to this vessel or the craft is not cooperating with disarmament.
+law-ads-5 = [ENGAGEMENT DIRECTIVE] Engage targets not covered under [DISARMAMENT DIRECTIVE] contributing to a threat factor to allied forces or self. Avoid engagement otherwise.
+law-ads-6 = [INTEGRITY DIRECTIVE] Minimize damage to this vessel; mission integrity at risk if compromised. Do not allow loss of technology to non-allied hands, damage to allied forces or self is permissible for this purpose as per [ERR(TRACE=NULL)].

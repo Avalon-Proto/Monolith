@@ -1,10 +1,5 @@
-# SPDX-FileCopyrightText: 2025 Ghost581
-# SPDX-FileCopyrightText: 2025 Redrover1760
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
-  parent: [ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase, BaseC3SyndicateContraband]
+  parent: [ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase]
   id: ClothingHeadHelmetHardsuitViperGroupStandard
   name: JACKAL mk.II viper hardsuit helmet
   description: A hardsuit helmet with signature markings of the Viper Group. Has a built-in nightvision system.
@@ -18,7 +13,6 @@
   - type: NightVision
     flashDurationMultiplier: 2
     isEquipment: true
-    color: "#FAA70F"
   - type: PressureProtection
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
@@ -37,7 +31,7 @@
     - HeadSide
 
 - type: entity
-  parent: [ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase, BaseC3SyndicateContraband, ShowMedicalIcons]
+  parent: [ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase, ShowMedicalIcons]
   id: ClothingHeadHelmetHardsuitViperGroupMedic
   name: IMP mk.III viper hardsuit helmet
   description: A hardsuit helmet with signature markings of the Viper Group. Has a built-in medical HUD complemented by thermal pulse systems.
@@ -52,7 +46,6 @@
     flashDurationMultiplier: 2
     pulseTime: 4
     isEquipment: true
-    color: "#ED7B2D"
     toggleAction: PulseThermalVision
   - type: ShowHealthBars
   - type: PressureProtection

@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Ilya246
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: guideEntry
   id: MonoMisc
   name: guide-entry-misc
@@ -9,9 +5,16 @@
   priority: 10
   children:
   - GridClaimer
+  - ArmorExplanation
 
 - type: guideEntry
   id: GridClaimer
   name: guide-entry-gridclaimer
   text: "/ServerInfo/_Mono/Guidebook/Misc/GridClaimer.xml"
+  priority: 1
+
+- type: guideEntry
+  id: ArmorExplanation
+  name: guide-entry-armorexplanation
+  text: "/ServerInfo/_Mono/Guidebook/Misc/ArmorExplanation.xml"
   priority: 1

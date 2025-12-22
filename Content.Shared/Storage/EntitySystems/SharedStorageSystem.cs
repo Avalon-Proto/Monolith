@@ -1,33 +1,3 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers
-// SPDX-FileCopyrightText: 2024 Callmore
-// SPDX-FileCopyrightText: 2024 Crude Oil
-// SPDX-FileCopyrightText: 2024 Dvir
-// SPDX-FileCopyrightText: 2024 Kara
-// SPDX-FileCopyrightText: 2024 Krunklehorn
-// SPDX-FileCopyrightText: 2024 Leon Friedrich
-// SPDX-FileCopyrightText: 2024 Nemanja
-// SPDX-FileCopyrightText: 2024 Plykiya
-// SPDX-FileCopyrightText: 2024 ShadowCommander
-// SPDX-FileCopyrightText: 2024 SlamBamActionman
-// SPDX-FileCopyrightText: 2024 Sphiral
-// SPDX-FileCopyrightText: 2024 Tayrtahn
-// SPDX-FileCopyrightText: 2024 Whatstone
-// SPDX-FileCopyrightText: 2024 checkraze
-// SPDX-FileCopyrightText: 2024 deltanedas
-// SPDX-FileCopyrightText: 2024 metalgearsloth
-// SPDX-FileCopyrightText: 2024 nikthechampiongr
-// SPDX-FileCopyrightText: 2024 plykiya
-// SPDX-FileCopyrightText: 2024 slarticodefast
-// SPDX-FileCopyrightText: 2025 ErhardSteinhauer
-// SPDX-FileCopyrightText: 2025 Errant
-// SPDX-FileCopyrightText: 2025 GreaseMonk
-// SPDX-FileCopyrightText: 2025 Kyle Tyo
-// SPDX-FileCopyrightText: 2025 lzk
-// SPDX-FileCopyrightText: 2025 monolith8319
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Collections.Frozen;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
@@ -195,6 +165,12 @@ public abstract class SharedStorageSystem : EntitySystem
             .Bind(ContentKeyFunctions.OpenBackpack, InputCmdHandler.FromDelegate(HandleOpenBackpack, handle: false))
             .Bind(ContentKeyFunctions.OpenBelt, InputCmdHandler.FromDelegate(HandleOpenBelt, handle: false))
             .Bind(ContentKeyFunctions.OpenWallet, InputCmdHandler.FromDelegate(HandleOpenWallet, handle: false)) // Frontier
+            // Mono
+            .Bind(ContentKeyFunctions.OpenPocket1, InputCmdHandler.FromDelegate(HandleOpenPocket1, handle: false))
+            .Bind(ContentKeyFunctions.OpenPocket2, InputCmdHandler.FromDelegate(HandleOpenPocket2, handle: false))
+            .Bind(ContentKeyFunctions.OpenSuitStorage, InputCmdHandler.FromDelegate(HandleOpenSuitStorage, handle: false))
+            .Bind(ContentKeyFunctions.OpenOuterClothing, InputCmdHandler.FromDelegate(HandleOuterClothing, handle: false))
+            // Mono End
             .Register<SharedStorageSystem>();
 
         Subs.CVar(_cfg, CCVars.NestedStorage, OnNestedStorageCvar, true);
@@ -1663,6 +1639,27 @@ public abstract class SharedStorageSystem : EntitySystem
         HandleToggleSlotUI(session, "wallet");
     }
     // End Frontier: open wallet
+    // Mono Edit
+    private void HandleOpenPocket1(ICommonSession? session)
+    {
+        HandleToggleSlotUI(session, "pocket1");
+    }
+
+    private void HandleOpenPocket2(ICommonSession? session)
+    {
+        HandleToggleSlotUI(session, "pocket2");
+    }
+
+    private void HandleOpenSuitStorage(ICommonSession? session)
+    {
+        HandleToggleSlotUI(session, "suitstorage");
+    }
+
+    private void HandleOuterClothing(ICommonSession? session)
+    {
+        HandleToggleSlotUI(session, "outerClothing");
+    }
+    // Mono End
     private void HandleToggleSlotUI(ICommonSession? session, string slot)
     {
         if (session is not { } playerSession)

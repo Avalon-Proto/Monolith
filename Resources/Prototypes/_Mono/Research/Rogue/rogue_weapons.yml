@@ -1,11 +1,3 @@
-# SPDX-FileCopyrightText: 2025 HungryCuban
-# SPDX-FileCopyrightText: 2025 Onezero0
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 core-mene
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: technology
   id: RogueEdagger
   name: research-technology-rogue-energy-dagger
@@ -120,6 +112,7 @@
   - WeaponSubMachineGunMla73Rogue
   - Magazine635x40mmCaseless
   - AmmoBox635x40mmCaseless
+  - MagazineAsmgtUniversal635x40mm
   technologyPrerequisites:
   - RogueCQCGuns
   position: 21, 8

@@ -1,10 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Daniel Lenrd
-# SPDX-FileCopyrightText: 2025 RealSchepka
-# SPDX-FileCopyrightText: 2025 Schepka
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: loadoutGroup
   id: TsfmcBackpack
   name: loadout-group-contractor-backpack
@@ -42,6 +35,7 @@
   loadouts:
   - TsfmcClothingJumpsuit
   - TsfmcClothingJumpsuitType47D
+  - TsfmcClothingDressUniform
   fallbacks:
   - TsfmcClothingJumpsuit
 
@@ -53,6 +47,7 @@
   - TsfmcEngineeringClothingJumpsuit
   - TsfmcClothingJumpsuit
   - TsfmcClothingJumpsuitType47D
+  - TsfmcClothingDressUniform
   fallbacks:
   - TsfmcEngineeringClothingJumpsuit
 
@@ -240,8 +235,8 @@
   name: loadout-group-contractor-outerclothing
   minLimit: 1
   loadouts:
-  - TsfmcVestSlim
-  - TsfmcVestNormal
+  - TsfmcClothingOuterArmorBPVestLight
+  - TsfmcClothingOuterArmorBPVestMedium
   fallbacks:
-  - TsfmcVestSlim
+  - TsfmcClothingOuterArmorBPVestLight
 

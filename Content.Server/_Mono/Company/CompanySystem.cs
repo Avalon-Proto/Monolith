@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 Blu
-// SPDX-FileCopyrightText: 2025 HacksLua
-// SPDX-FileCopyrightText: 2025 LukeZurg22
-// SPDX-FileCopyrightText: 2025 starch
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared._Mono.Company;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
@@ -45,21 +37,22 @@ public sealed class CompanySystem : EntitySystem
         "TsfEngineer"
     };
 
-    private readonly HashSet<string> _asrJobs = new()
+    private readonly HashSet<string> _rogues = new()
     {
         "PirateCaptain",
         "PirateFirstMate",
-        "Pirate"
+        "Pirate",
+        "PDVInfiltrator",
     };
 
-    private readonly HashSet<string> _usspJobs = new()
-    {
-        "USSPCommissar",
-        "USSPSergeant",
-        "USSPCorporal",
-        "USSPMedic",
-        "USSPRifleman"
-    };
+    // private readonly HashSet<string> _usspJobs = new()
+    // {
+    //    "USSPCommissar",
+    //    "USSPSergeant",
+    //    "USSPCorporal",
+    //    "USSPMedic",
+    //    "USSPRifleman"
+    //};
 
     private readonly HashSet<string> _colonialJobs = new()
     {
@@ -116,17 +109,17 @@ public sealed class CompanySystem : EntitySystem
             companyComp.CompanyName = "TSF";
         }
         // Check if player's job is one of the Rogue jobs
-        else if (args.JobId != null && _asrJobs.Contains(args.JobId))
+        else if (args.JobId != null && _rogues.Contains(args.JobId))
         {
             // Assign Rogue company
-            companyComp.CompanyName = "Rogue";
+            companyComp.CompanyName = "PDV";
         }
         // Check if player's job is one of the USSP jobs
-        else if (args.JobId != null && _usspJobs.Contains(args.JobId))
-        {
-            // Assign USSP company
-            companyComp.CompanyName = "USSP";
-        }
+        //else if (args.JobId != null && _usspJobs.Contains(args.JobId))
+        //{
+        //    // Assign USSP company
+        //    companyComp.CompanyName = "USSP";
+        //}
         else if (args.JobId != null && _colonialJobs.Contains(args.JobId))
         {
             // Assign MD company
